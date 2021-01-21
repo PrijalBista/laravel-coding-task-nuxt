@@ -7,29 +7,21 @@
   	            <ul class="sidebar-nav">
   	                <li class="sidebar-brand">
   	                    <a href="#">
-  	                        Start Bootstrap
+  	                        Admin Panel
   	                    </a>
   	                </li>
   	                <li>
-  	                    <a href="#">Dashboard</a>
+  	                    <nuxt-link to="/admin/dashboard/">Dashboard</nuxt-link>
   	                </li>
   	                <li>
-  	                    <a href="#">Shortcuts</a>
+  	                	<nuxt-link to="/admin/dashboard/company">Company</nuxt-link>
   	                </li>
   	                <li>
-  	                    <a href="#">Overview</a>
+  	                	<nuxt-link to="/admin/dashboard/customer">Customer</nuxt-link>
+
   	                </li>
   	                <li>
-  	                    <a href="#">Events</a>
-  	                </li>
-  	                <li>
-  	                    <a href="#">About</a>
-  	                </li>
-  	                <li>
-  	                    <a href="#">Services</a>
-  	                </li>
-  	                <li>
-  	                    <a href="#">Contact</a>
+  	                    <a href="#" @click.prevent="$store.commit('signout')">Sign Out</a>
   	                </li>
   	            </ul>
   	        </div>
@@ -37,17 +29,7 @@
 
   	        <!-- Page Content -->
   	        <div id="page-content-wrapper">
-  	            <div class="container-fluid">
-  	                <div class="row">
-  	                    <div class="col-lg-12">
-  	                        <h1>Simple Sidebar</h1>
-  	                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-  	                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-  	                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-  	                        <button class="btn btn-primary" @click="$store.commit('signout')">SignOUt</button>
-  	                    </div>
-  	                </div>
-  	            </div>
+  	           	<nuxt-child/>
   	        </div>
   	        <!-- /#page-content-wrapper -->
 
@@ -58,6 +40,7 @@
 
 <script>
 export default {
+  middleware: ['isAdmin'],
   components: {},
   created() {
   	this.$axios.get('/api/company')
@@ -144,7 +127,11 @@ export default {
 	    color: #fff;
 	    background: rgba(255,255,255,0.2);
 	}
-
+	.sidebar-nav li a.nuxt-link-exact-active {
+	    text-decoration: none;
+	    color: #fff;
+	    background: rgba(255,255,255,0.2);
+	}
 	.sidebar-nav li a:active,
 	.sidebar-nav li a:focus {
 	    text-decoration: none;

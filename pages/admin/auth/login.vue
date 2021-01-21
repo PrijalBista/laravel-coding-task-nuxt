@@ -27,10 +27,12 @@
 </template>
 <script>
 	export default {
+		middleware: ['isGuest'],
+
 		data() {
 			return {
-				email: '',
-				password: '',
+				email: 'johndoe@example.org',
+				password: '12345678',
 				error: '',
 			}
 		},
@@ -40,7 +42,10 @@
 				console.log('logging in');
 				this.$axios
 					.post('/api/auth/login', { email:this.email, password:this.password })
-					.then(res => console.log(res))
+					.then( ({ data }) => {
+						this.$store.commit('setAuth', data);
+						this.$router.replace('/admin/dashboard');
+					})
 					.catch(err => {
 						console.log(err.response)
 						if(err.response.data.error) {
@@ -48,7 +53,7 @@
 						}
 					});
 			}
-		}
+		},
 	}
 </script>
 <style scoped>
