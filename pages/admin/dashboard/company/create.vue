@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 	<div class="row">
 	    <div class="col-lg-12">
-	        <h1 class="mb-5">Company / Create <small><span class="badge badge-info" @click="$router.back()">Back</span></small></h1>
+	        <h1 class="mb-5">Company / Create <small><span class="badge badge-info" @click="$router.back()"><i class="las la-arrow-left"></i>Back</span></small></h1>
 
 	        <div class="row">
 	        	<div class="col-12 col-md-8">

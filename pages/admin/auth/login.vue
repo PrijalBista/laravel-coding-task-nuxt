@@ -16,7 +16,7 @@
 		            <div class="text text-danger py-2" v-if="error" ><small>{{ error }} !</small></div>
 		            <button class="btn btn-lg btn-primary btn-block mb-1" type="submit">Sign in</button>
 		          </form>
-		      	  <a href="#" class="float-right mt-2">Create Account</a>
+		      	  <nuxt-link to="/admin/auth/register" class="float-right mt-2">Create Account</nuxt-link>
 		        </div>
 		      </div>
 		    </div>
@@ -44,7 +44,11 @@
 					.post('/api/auth/login', { email:this.email, password:this.password })
 					.then( ({ data }) => {
 						this.$store.commit('setAuth', data);
-						this.$router.replace('/admin/dashboard');
+						if(data.user.role == 'admin') {
+							this.$router.replace('/admin/dashboard');
+						} else {
+							this.$router.replace('/customer/home');
+						}
 					})
 					.catch(err => {
 						console.log(err.response)

@@ -27,8 +27,8 @@
     	      <td>{{ company.phone }}</td>
     	      <td>{{ company.email }}</td>
     	      <td>
-    	      	<nuxt-link :to="`/admin/dashboard/company/${company.id}`">edit</nuxt-link>
-    	      	<a href="#" @click.prevent="destroy(company.id)">delete</a>
+    	      	<nuxt-link :to="`/admin/dashboard/company/${company.id}`"><i class="las la-edit"></i></nuxt-link>
+    	      	<a href="#" @click.prevent="destroy(company.id)"><i class="las la-trash"></i></a>
     	      </td>
     	    </tr>
     	  </tbody>

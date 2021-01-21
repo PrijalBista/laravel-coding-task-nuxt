@@ -11,17 +11,17 @@
   	                    </a>
   	                </li>
   	                <li>
-  	                    <nuxt-link to="/admin/dashboard/">Dashboard</nuxt-link>
+  	                    <nuxt-link to="/admin/dashboard/"><i class="las la-home mr-1"></i>Dashboard</nuxt-link>
   	                </li>
   	                <li>
-  	                	<nuxt-link to="/admin/dashboard/company">Company</nuxt-link>
+  	                	<nuxt-link to="/admin/dashboard/company"><i class="las la-business-time mr-1"></i>Company</nuxt-link>
   	                </li>
   	                <li>
-  	                	<nuxt-link to="/admin/dashboard/customer">Customer</nuxt-link>
+  	                	<nuxt-link to="/admin/dashboard/customer"><i class="las la-users mr-1"></i>Customer</nuxt-link>
 
   	                </li>
   	                <li>
-  	                    <a href="#" @click.prevent="$store.commit('signout')">Sign Out</a>
+  	                    <a href="#" @click.prevent="$store.commit('signout')"><i class="las la-sign-out-alt mr-1"></i>Sign Out</a>
   	                </li>
   	            </ul>
   	        </div>
